@@ -1,0 +1,8 @@
+Flask==2.3.3
+Flask-CORS==4.0.0
+Flask-SocketIO==5.3.6
+pandas==2.1.1
+playwright==1.40.0
+python-socketio==5.9.0
+eventlet==0.33.3
+aiohttp==3.8.6
