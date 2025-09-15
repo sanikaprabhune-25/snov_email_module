@@ -92,7 +92,7 @@ async def playwright_worker_main():
     from playwright.async_api import async_playwright # Import here to be in the right context
     pw_instance = await async_playwright().start()
     browser: Browser = await pw_instance.chromium.launch(
-        headless=False, # Set to True for production if no UI is needed
+        headless=True, # Set to True for production if no UI is needed
         args=["--no-sandbox", "--disable-dev-shm-usage", "--window-size=1920,1080"]
     )
     print("→ Playwright worker: browser launched.")
