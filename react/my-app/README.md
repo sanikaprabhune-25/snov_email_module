@@ -1,7 +1,14 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In app.js code section:
+// Configuration for deployment - change these for local testing vs production
+const IS_LOCAL_TESTING = true; // Set to false for production build
+const LOCAL_HOST = '192.168.7.140'; // Your local Flask server IP
+const PRODUCTION_HOST = '3.110.132.80'; // Deployment server IP
+const PORT = '8000';
 
+##change IS_LOCAL_TESTING = false 
 ## Available Scripts
 
 In the project directory, you can run:
