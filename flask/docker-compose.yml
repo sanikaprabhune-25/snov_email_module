@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  email-campaign-system:
+    build: .
+    container_name: email-campaign-system
+    ports:
+      - "3014:3014"
+      - "5678:5678" # Port for debugpy
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FLASK_ENV=production
+    volumes:
+      # Optional: persist logs if you write logs to /app/logs
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3014/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - email-campaign-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+networks:
+  email-campaign-network:
+    driver: bridge
